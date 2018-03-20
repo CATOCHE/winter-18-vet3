@@ -1,4 +1,9 @@
-const { getResources, getResource, addResource } = require('../dal')
+const {
+  getResources,
+  getResource,
+  addResource,
+  deleteResource
+} = require('../dal')
 const pkGen = require('../lib/pkGen')
 
 module.exports = app => {
@@ -16,9 +21,14 @@ module.exports = app => {
   })
 
   app.post('/resources', (req, res) => {
-    console.log('POST / Resources')
     addResource(req.body)
       .then(addedResource => res.status(201).send(addedResource))
       .catch(err => console.log('Post Resource ERROR', err))
+  })
+
+  app.delete('/resources/:id', (req, res) => {
+    deleteResource(req.params.id)
+      .then(deletedResult => res.status(200).send(deletedResult))
+      .catch(err => console.log('Could not delete item.'))
   })
 }

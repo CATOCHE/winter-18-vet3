@@ -3,7 +3,8 @@ import {
   SET_RESOURCES,
   GET_RESOURCE,
   CHG_CURRENT_RESOURCE,
-  CLEAR_CURRENT_RESOURCE
+  CLEAR_CURRENT_RESOURCE,
+  ERROR
 } from '../constants'
 const url = 'http://localhost:5000'
 
@@ -23,6 +24,23 @@ export const getResource = id => async (dispatch, getState) => {
   dispatch({ type: GET_RESOURCE, payload: {} })
   const resource = await fetch(`${url}/resources/${id}`).then(res => res.json())
   dispatch({ type: GET_RESOURCE, payload: resource })
+}
+
+export const deleteResource = (id, history) => async (dispatch, getState) => {
+  const headers = {
+    'Content-Type': 'application/json'
+  }
+  const method = 'DELETE'
+  const response = await fetch(`${url}/resources/${id}`, {
+    method,
+    headers
+  }).then(res => res.json())
+  if (!response.ok) {
+    dispatch({ type: ERROR, payload: 'Could not delete resource' })
+    return
+  }
+  dispatch(getResources)
+  history.push('/resources')
 }
 
 export const addResource = (resource, history) => async (
