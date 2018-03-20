@@ -41,12 +41,19 @@ const ResourceListItem = props => {
         color: 'black'
       }}
     >
-      <ListItem>
-        <Link to={`/resources/${props.resource._id}`}>
+      <Link
+        style={{ textDecoration: 'none' }}
+        to={`/resources/${props.resource._id}`}
+      >
+        <ListItem>
           <Avatar>{avatarLetter}</Avatar>
-          <ListItemText primary={name} secondary={shortDesc} />
-        </Link>
-      </ListItem>
+          <ListItemText
+            style={{ marginLeft: '15px' }}
+            primary={name}
+            secondary={shortDesc}
+          />
+        </ListItem>
+      </Link>
       <Divider />
     </Link>
   )

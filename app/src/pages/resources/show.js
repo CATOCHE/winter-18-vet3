@@ -22,7 +22,10 @@ const styles = theme => ({
     paddingTop: 8,
     paddingBottom: 8,
     marginTop: theme.spacing.unit * 3
-  })
+  }),
+  cleaned: {
+    textDecoration: 'none'
+  }
 })
 
 class Resource extends React.Component {
@@ -34,7 +37,6 @@ class Resource extends React.Component {
   render() {
     const props = this.props
     const { classes } = props
-    console.log('PROPS in Show.js', props)
     if (props.resource._id !== props.match.params.id) {
       return <h1>Loading Resource...</h1>
     }
