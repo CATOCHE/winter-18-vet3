@@ -31,4 +31,9 @@ module.exports = app => {
       .then(deletedResult => res.status(200).send(deletedResult))
       .catch(err => console.log('Could not delete item.'))
   })
+  app.put('/resources/:id', (req, res) => {
+    updateResource(req.body)
+      .then(updatedResource => res.status(200).send(updatedResource))
+      .catch(err => console.log('Could not update item.'))
+  })
 }

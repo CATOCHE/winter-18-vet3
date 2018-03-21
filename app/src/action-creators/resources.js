@@ -69,3 +69,26 @@ export const addResource = (resource, history) => async (
 export const chgResource = (field, value) => async (dispatch, getState) => {
   dispatch({ type: CHG_CURRENT_RESOURCE, payload: { [field]: value } })
 }
+
+export const editResource = (resource, history) => async (
+  dispatch,
+  getState
+) => {
+  const headers = { 'Content-Type': 'application/json' }
+  const method = 'PUT'
+  const body = JSON.stringify(resource)
+
+  const result = await fetch(`${url}/resources`, {
+    headers,
+    method,
+    body
+  }).then(res => res.json())
+
+  if (result) {
+    if (result.ok) {
+      dispatch(getResources)
+      dispatch({ type: CLEAR_CURRENT_RESOURCE })
+      history.push(`/resources/${resource._id}`)
+    }
+  }
+}

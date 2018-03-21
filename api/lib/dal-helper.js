@@ -15,11 +15,15 @@ const allDocs = options => {
 
 const getDoc = id => db.get(id)
 const addDoc = doc => db.put(doc)
+const deleteDoc = doc => db.get(doc).then(doc => db.remove(doc))
+const updateDoc = doc => db.put(doc)
 
 const dalHelper = {
   allDocs,
   getDoc,
-  addDoc
+  addDoc,
+  deleteDoc,
+  updateDoc
 }
 
 module.exports = dalHelper
