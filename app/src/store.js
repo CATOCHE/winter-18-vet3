@@ -6,6 +6,8 @@ import { categories, category, addCategoryForm } from './reducers/categories'
 import appData from './reducers/app-data'
 import drawer from './reducers/drawer'
 
+import searchCriteria from './reducers/search'
+
 import thunk from 'redux-thunk'
 
 const store = createStore(
@@ -17,7 +19,8 @@ const store = createStore(
     categories,
     drawer,
     currentResource,
-    addCategoryForm
+    addCategoryForm,
+    searchCriteria
   }),
 
   applyMiddleware(thunk)
