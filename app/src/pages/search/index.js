@@ -25,6 +25,7 @@ const styles = theme => ({
 const Search = props => {
   // props.toggleDrawer()
   const { classes } = props
+  console.log('Search Function Props', props)
   return (
     <div>
       <MenuAppBar title="Search" />
@@ -46,10 +47,11 @@ const Search = props => {
     </div>
   )
 }
-
+//{map(r => <ResourceListItem resource={r} />, props.resources)}
 const mapStateToProps = state => {
   return {
-    search: state.search
+    search: state.search,
+    resources: state.resources
   }
 }
 
