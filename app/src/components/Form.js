@@ -30,6 +30,21 @@ const Form = ({
       />
     </div>
   ) : null
+
+  const styles = theme => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    textField: {
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
+      width: 200
+    },
+    menu: {
+      width: 200
+    }
+  })
   /* Below, we're showing our name, id, and possibly our value field (if showValueInput is set to true) */
   return (
     /* onSubmit is one of our props. It's defined in our starwars/form.js file
@@ -46,7 +61,11 @@ const Form = ({
             id="name"
             label="Name"
             value={name}
-            onChange={e => onChange('name', e.target.value)}
+            onChange={e => {
+              console.log('This is the name form')
+
+              onChange('name', e.target.value)
+            }}
             margin="normal"
           />
         </div>

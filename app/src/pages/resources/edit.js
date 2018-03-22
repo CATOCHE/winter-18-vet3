@@ -15,11 +15,11 @@ const EditResource = props => {
   return (
     <div>
       <Form
-        cancelUrl={`/resources/`}
+        cancelUrl={`/resources`}
         onChange={props.onChange}
         onSubmit={e => props.onSubmit(props.history, props.resource)}
-        value={props.resources}
-        {...props.currentResource}
+        value={props.resource}
+        {...props.resource}
       />
     </div>
   )
@@ -28,18 +28,22 @@ const EditResource = props => {
 const mapStateToProps = state => {
   console.log('STATE IS ', state)
   return {
+    // currentResource: state.resource
+    resource: state.resource,
     currentResource: state.resource
   }
 }
 
 const mapActionsToProps = dispatch => {
   return {
-    onChange: (field, value) => dispatch(chgResource(field, value)),
+    onChange: (field, value) => {
+      console.log('This is the mapActionsToProps field-value', field, value)
+      dispatch(chgResource(field, value))
+    },
     onSubmit: (history, resource) => e => {
       e.preventDefault()
       dispatch(editResource(resource, history))
-    },
-    initialFieldValue: resource => dispatch(getResource(resource._id))
+    }
   }
 }
 
