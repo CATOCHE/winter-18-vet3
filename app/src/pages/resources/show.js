@@ -99,9 +99,6 @@ class Resource extends React.Component {
   }
 }
 
-/*
-
-*/
 const mapStateToProps = state => {
   return {
     resource: state.resource

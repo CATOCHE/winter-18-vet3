@@ -2,7 +2,8 @@ const {
   getResources,
   getResource,
   addResource,
-  deleteResource
+  deleteResource,
+  updateResource
 } = require('../dal')
 const pkGen = require('../lib/pkGen')
 

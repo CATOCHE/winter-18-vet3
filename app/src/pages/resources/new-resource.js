@@ -11,8 +11,8 @@ const NewResource = props => {
       <Form
         cancelUrl="/resources"
         onChange={props.onChange}
-        onSubmit={e => props.onSubmit(props.history, props.currentResource)}
-        {...props.currentResource}
+        onSubmit={e => props.onSubmit(props.history, props.resource)}
+        {...props.resource}
       />
     </div>
   )
@@ -20,7 +20,7 @@ const NewResource = props => {
 
 function mapStateToProps(state) {
   return {
-    currentResource: state.currentResource
+    resource: state.resource
   }
 }
 

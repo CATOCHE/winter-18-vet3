@@ -77,7 +77,16 @@ export const editResource = (resource, history) => async (
   const headers = { 'Content-Type': 'application/json' }
   const method = 'PUT'
   const body = JSON.stringify(resource)
-
+  console.log('res')
+  console.log(
+    'resource',
+    resource,
+    'RESOURCE ID FOR CARLOS',
+    resource._id,
+    'result',
+    result
+  )
+  console.log('STRING LITERAL', `${url}/resources/${resource._id}`)
   const result = await fetch(`${url}/resources/${resource._id}`, {
     headers,
     method,

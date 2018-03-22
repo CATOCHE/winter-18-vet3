@@ -32,7 +32,8 @@ const dal = {
   getResources,
   getCategories,
   addResource,
-  deleteResource
+  deleteResource,
+  updateResource
 }
 
 module.exports = dal
