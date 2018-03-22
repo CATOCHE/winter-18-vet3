@@ -12,6 +12,8 @@ import NewResource from './pages/resources/new-resource'
 import AddCategory from './pages/categories/addCategory'
 import Search from './pages/search'
 
+import EditResource from './pages/resources/edit'
+
 class App extends Component {
   render() {
     return (
@@ -30,6 +32,7 @@ class App extends Component {
             <Route exact path="/categories/new" component={AddCategory} />
             <Route path="/categories/:id" component={Category} />
             <Route path="/search" component={Search} />
+            <Route path="/resources/:id/edit" component={EditResource} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -43,3 +43,5 @@ export const currentResource = (state = {}, action) => {
       return state
   }
 }
+
+export const initialResource

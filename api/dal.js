@@ -1,4 +1,10 @@
-const { allDocs, getDoc, addDoc, deleteDoc } = require('./lib/dal-helper')
+const {
+  allDocs,
+  getDoc,
+  addDoc,
+  deleteDoc,
+  updateDoc
+} = require('./lib/dal-helper')
 const pkGen = require('./lib/pkGen')
 
 const getResources = options => allDocs(options || { include_docs: true })
@@ -15,6 +21,10 @@ const addResource = doc => {
 
 const deleteResource = doc => {
   return deleteDoc(doc)
+}
+
+const updateResource = doc => {
+  return updateDoc(doc)
 }
 
 const dal = {

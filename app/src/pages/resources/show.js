@@ -52,6 +52,7 @@ class Resource extends React.Component {
                 {props.resource.purpose}
               </Typography>
             </Paper>
+
             <Link
               style={{ textDecoration: 'none' }}
               to={`/resources/${props.resource._id}/edit`}
